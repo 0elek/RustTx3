@@ -68,18 +68,18 @@ fn check_for_winner(board: Board) -> Winner {
 fn turn(mut board: Board, step: usize) -> Option<Board> {
     if board.board[step] == State::Unoccupied {
         board.board[step] = board.turn;
-        return Some(board);
+        Some(board)
     } else {
-        return None;
+        None
     }
 }
 
 fn print_board(board: Board) {
     fn x_or_o(state: State) -> String {
         match state {
-            State::White => return String::from("X"),
-            State::Black => return String::from("O"),
-            State::Unoccupied => return String::from("#"),
+            State::White => String::from("X"),
+            State::Black => String::from("O"),
+            State::Unoccupied => String::from("#"),
         }
     }
     println!(
